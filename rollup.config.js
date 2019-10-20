@@ -38,7 +38,7 @@ export default {
     }),
     commonjs(),
 
-    dotenvPlugin(),
+    !production && dotenvPlugin(),
 
     // Watch the `public` directory and refresh the
     // browser on changes when not in production
