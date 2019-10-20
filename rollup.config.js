@@ -4,6 +4,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import replace from 'rollup-plugin-replace';
+import rollupdotenv from 'rollup-plugin-dotenv';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -36,8 +37,10 @@ export default {
       dedupe: importee =>
         importee === 'svelte' || importee.startsWith('svelte/')
     }),
+    !production && rollupdotenv(),
     replace({
-      FIREBASE_API_KEY: process.env.FIREBASE_API_KEY || ''
+      FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
+      PROD: production
     }),
     commonjs(),
 

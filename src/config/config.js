@@ -1,3 +1,4 @@
 export default {
-  API_KEY: 'FIREBASE_API_KEY'
+  API_KEY: 'FIREBASE_API_KEY',
+  prod: 'PROD'
 };
