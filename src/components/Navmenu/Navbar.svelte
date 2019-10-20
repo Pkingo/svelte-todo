@@ -12,11 +12,11 @@
 
 <div class="nav-wrapper">
   <ul>
-    <a>Brætspilsministeret</a>
-    <a>Indkøb</a>
-    <a>Madklubber</a>
+    <li>Brætspilsministeret</li>
+    <li>Indkøb</li>
+    <li>Madklubber</li>
   </ul>
   <ul>
-    <li><a>Login</a></li>
+    <li>Login</li>
   </ul>
 </div>
