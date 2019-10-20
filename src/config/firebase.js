@@ -4,7 +4,7 @@ import 'firebase/firestore';
 import config from './config';
 
 const firebaseConfig = {
-  apiKey: !config.prod ? config.API_KEY : process.env.FIREBASE_API_KEY,
+  apiKey: config.API_KEY,
   authDomain: 'braetspilsministeriet-fe76f.firebaseapp.com',
   databaseURL: 'https://braetspilsministeriet-fe76f.firebaseio.com',
   projectId: 'braetspilsministeriet-fe76f',

@@ -39,8 +39,7 @@ export default {
     }),
     !production && rollupdotenv(),
     replace({
-      FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
-      PROD: production
+      FIREBASE_API_KEY: process.env.FIREBASE_API_KEY
     }),
     commonjs(),
 
