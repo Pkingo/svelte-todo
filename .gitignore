@@ -4,3 +4,4 @@ public/*
 .env
 !public/index.html
 !public/favicon.png
+!public/global.css
