@@ -37,8 +37,7 @@ export default {
         importee === 'svelte' || importee.startsWith('svelte/')
     }),
     commonjs(),
-
-    !production && dotenvPlugin(),
+    dotenvPlugin(),
 
     // Watch the `public` directory and refresh the
     // browser on changes when not in production
