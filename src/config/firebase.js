@@ -1,9 +1,12 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import config from './config';
+
+console.log('Config', config);
 
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
+  apiKey: 'asdasdasdasdasdsa', // process.env.FIREBASE_API_KEY,
   authDomain: 'braetspilsministeriet-fe76f.firebaseapp.com',
   databaseURL: 'https://braetspilsministeriet-fe76f.firebaseio.com',
   projectId: 'braetspilsministeriet-fe76f',
