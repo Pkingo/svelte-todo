@@ -12,8 +12,6 @@ const firebaseConfig = {
   appId: '1:1015370273143:web:cb6e5e094d178d10ba1172'
 };
 
-console.log('Firebase config', firebaseConfig);
-
 firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();

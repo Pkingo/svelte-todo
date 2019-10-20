@@ -1,12 +1,13 @@
 <script>
-  export let name;
-  import Login from './components/Login.svelte';
+  import Login from './components/Auth/Login.svelte';
+  import Navbar from './components/Navmenu/Navbar.svelte';
 </script>
 
 <style>
-  h1 {
-    color: purple;
+  :global(body) {
+    padding: 0;
   }
 </style>
-
+  
+<Navbar />
 <Login />

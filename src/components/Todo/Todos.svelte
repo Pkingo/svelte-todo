@@ -1,6 +1,6 @@
 <script>
     import TodoItem from './TodoItem.svelte';
-    import {db} from '../config/firebase';
+    import {db} from '../../config/firebase';
     import {collectionData} from 'rxfire/firestore';
     import {startWith} from 'rxjs/operators';
   

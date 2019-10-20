@@ -1,8 +1,8 @@
 <script>
     import Profile from './Profile.svelte';
-    import Todos from './Todos.svelte';
+    import Todos from '../Todo/Todos.svelte';
 
-    import { auth, googleProvider } from '../config/firebase';
+    import { auth, googleProvider } from '../../config/firebase';
     import { authState } from 'rxfire/auth';
 
     let user;
