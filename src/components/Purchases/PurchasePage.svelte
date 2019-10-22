@@ -1,19 +1,19 @@
 <script>
   import PurchaseItem from "./PurchaseItem.svelte";
+  import { fade } from "svelte/transition";
   import { db } from "../../config/firebase";
   import { collectionData } from "rxfire/firestore";
   import { startWith } from "rxjs/operators";
+  import Icon from "svelte-awesome";
+  import { spinner } from "svelte-awesome/icons";
 
-  export let uid;
-
-  let text = "some task";
+  let text = "";
 
   const query = db.collection("todos").orderBy("created");
   const purchases = collectionData(query, "id").pipe(startWith([]));
 
   function add() {
     db.collection("todos").add({
-      uid,
       text,
       complete: false,
       created: Date.now()
@@ -42,14 +42,36 @@
       .doc(id)
       .delete();
   }
+
+  function focus(el) {
+    el.focus();
+  }
+  function handleSubmit(event) {
+    event.preventDefault();
+    add();
+  }
 </script>
 
 <style>
   input {
     display: block;
   }
+  form {
+    display: flex;
+    padding-inline-start: 40px;
+  }
+  .icon-wrapper {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+  }
 </style>
 
+{#if !$purchases.length}
+  <div in:fade out:fade class="icon-wrapper">
+    <Icon data={spinner} pulse scale="5" />
+  </div>
+{/if}
 <ul>
   {#each $purchases as purchase}
     <PurchaseItem
@@ -60,13 +82,7 @@
   {/each}
 </ul>
 
-<input bind:value={text} />
-
-<hr />
-
-<p>
-  Tilføj indkøb:
-  <strong>{text}</strong>
-</p>
-
-<button class="button is-info" on:click={add}>Indkøb</button>
+<form on:submit={handleSubmit}>
+  <input placeholder="Tilføj indkøb" bind:value={text} use:focus />
+  <button type="submit">Tilføj</button>
+</form>

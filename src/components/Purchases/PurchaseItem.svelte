@@ -1,6 +1,8 @@
 <script>
   import { fade } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
+  import Icon from "svelte-awesome";
+  import { check, trash, times } from "svelte-awesome/icons";
 
   const dispatch = createEventDispatcher();
 
@@ -46,6 +48,7 @@
 
   li {
     display: flex;
+    align-items: center;
     font-size: 1.2em;
     font-weight: bold;
   }
@@ -53,6 +56,13 @@
   span {
     margin-right: auto;
     cursor: pointer;
+  }
+  .icon-wrapper {
+    display: flex;
+    margin-right: 10px;
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 5px;
   }
 </style>
 
@@ -68,16 +78,18 @@
       </form>
     </span>
   {:else}
-    <span
-      on:click={() => (isEditing = true)}
-      class:is-complete={() => complete}>
+    <span on:click={() => (isEditing = true)} class:is-complete={complete}>
       {text}
     </span>
-    {#if complete}
-      <button class="is-button" on:click={toggleStatus}>✔️</button>
-    {:else}
-      <button class="is-button" on:click={toggleStatus}>❌</button>
-    {/if}
+    <div class="icon-wrapper" on:click={toggleStatus}>
+      {#if complete}
+        <Icon data={times} />
+      {:else}
+        <Icon data={check} />
+      {/if}
+    </div>
   {/if}
-  <button class="is-button" on:click={remove}>️️️ 🗑️️</button>
+  <div class="icon-wrapper">
+    <Icon data={trash} on:click={remove} />
+  </div>
 </li>
