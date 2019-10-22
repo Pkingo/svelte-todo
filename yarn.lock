@@ -2257,7 +2257,19 @@ supports-color@^6.1.0:
   dependencies:
     has-flag "^3.0.0"
 
-svelte@^3.0.0:
+svelte-awesome@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/svelte-awesome/-/svelte-awesome-2.2.0.tgz#eb9c4f1aca464b1e897293f8e2f38667f525e58c"
+  integrity sha512-Z8Mk9lS+mjUNEwZPkxFyv9EMJRKsyOUuGymTcAGbxd8qBQExEs5j9XGRpXO7MBK4J5t2WrKWI8YkwfYLYC35Ew==
+  dependencies:
+    svelte "^3.8.1"
+
+svelte-click-outside@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/svelte-click-outside/-/svelte-click-outside-1.0.0.tgz#94a823779e3613ae0bdadc53f26916fdd64cb09e"
+  integrity sha512-TVDn5Vd8L0WI0Y9BFh/2I7judkIqYCbFKkGwGl/f8D0inwBFNyU0weKhrbJY4VQtYnWriq0NPl+mIYGisgALbw==
+
+svelte@^3.0.0, svelte@^3.8.1:
   version "3.12.1"
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.12.1.tgz#ddfacd43272ac3255907c682b74ee7d3d8b06b0c"
   integrity sha512-t29WJNjHIqfrdMcVXqIyRfgLEaNz7MihKXTpb8qHlbzvf0WyOOIhIlwIGvl6ahJ9+9CLJwz0sjhFNAmPgo8BHg==
