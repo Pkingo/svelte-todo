@@ -1,6 +1,6 @@
 <script>
-  import Login from './components/Auth/Login.svelte';
   import Navbar from './components/Navmenu/Navbar.svelte';
+  import PurchasePage from './components/Purchases/PurchasePage.svelte';
 </script>
 
 <style>
@@ -8,6 +8,5 @@
     padding: 0;
   }
 </style>
-  
 <Navbar />
-<Login />
+<PurchasePage />

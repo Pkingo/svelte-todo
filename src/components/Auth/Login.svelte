@@ -1,36 +1,29 @@
 <script>
-    import Profile from './Profile.svelte';
-    import Todos from '../Todo/Todos.svelte';
+  import Profile from './Profile.svelte';
+  import { auth, googleProvider } from '../../config/firebase';
+  import { authState } from 'rxfire/auth';
 
-    import { auth, googleProvider } from '../../config/firebase';
-    import { authState } from 'rxfire/auth';
+  let user;
 
-    let user;
+  const unsubscribe = authState(auth).subscribe(u => (user = u));
 
-    const unsubscribe = authState(auth).subscribe(u => user = u);
-
-    function login() {
-        auth.signInWithPopup(googleProvider);
-    }
+  function login() {
+    auth.signInWithPopup(googleProvider);
+  }
 </script>
 
-
 <style>
-    section {
-        background: rgb(235, 235, 235);
-        padding: 20px;
-    }
+  li {
+    margin-right: 2rem;
+    cursor: pointer;
+    color: white;
+  }
 </style>
 
-<section>
 {#if user}
-    <Profile {...user} />
-    <button on:click={ () => auth.signOut() } class="button">Logout</button>
-    <hr>
-    <Todos uid={user.uid} />
+<li on:click="{auth.signOut}">Logout</li>
 {:else}
-	<button on:click={login} class="button">
-		Signin with Google
-	</button>
+<li on:click="{login}">
+  Login
+</li>
 {/if}
-</section>
