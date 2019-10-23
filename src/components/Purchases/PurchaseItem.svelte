@@ -46,29 +46,29 @@
     color: green;
   }
 
-  li {
+  tr {
     display: flex;
     align-items: center;
     font-size: 1.2em;
     font-weight: bold;
   }
 
-  span {
+  td {
     margin-right: auto;
     cursor: pointer;
   }
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
   .icon-wrapper {
-    display: flex;
-    margin-right: 10px;
-    border: 1px solid #000;
-    border-radius: 8px;
+    margin: 0 1rem;
     padding: 5px;
   }
 </style>
 
-<li in:fade out:fade>
+<tr in:fade out:fade>
   {#if isEditing}
-    <span>
+    <td>
       <form on:submit={onSubmit}>
         <input
           type="text"
@@ -76,20 +76,20 @@
           use:focus
           on:keydown={handleKeydown} />
       </form>
-    </span>
+    </td>
   {:else}
-    <span on:click={() => (isEditing = true)} class:is-complete={complete}>
+    <td on:click={() => (isEditing = true)} class:is-complete={complete}>
       {text}
-    </span>
-    <div class="icon-wrapper" on:click={toggleStatus}>
+    </td>
+    <td class="icon-wrapper" align="right" on:click={toggleStatus}>
       {#if complete}
         <Icon data={times} />
       {:else}
         <Icon data={check} />
       {/if}
-    </div>
+    </td>
   {/if}
-  <div class="icon-wrapper" on:click={remove}>
+  <td class="icon-wrapper" align="right" on:click={remove}>
     <Icon data={trash} />
-  </div>
-</li>
+  </td>
+</tr>

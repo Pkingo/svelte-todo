@@ -58,12 +58,21 @@
   }
   form {
     display: flex;
-    padding-inline-start: 40px;
+    margin-top: 1rem;
+    justify-content: space-evenly;
   }
   .icon-wrapper {
     margin-top: 5rem;
     display: flex;
     justify-content: center;
+  }
+  table {
+    width: 100%;
+  }
+  button {
+    padding: 0 1rem 0 1rem;
+    background-color: transparent;
+    border: solid 0.1rem green;
   }
 </style>
 
@@ -72,7 +81,7 @@
     <Icon data={spinner} pulse scale="5" />
   </div>
 {/if}
-<ul>
+<table>
   {#each $purchases as purchase}
     <PurchaseItem
       {...purchase}
@@ -80,8 +89,7 @@
       on:toggle={updateStatus}
       on:editText={updateText} />
   {/each}
-</ul>
-
+</table>
 <form on:submit={handleSubmit}>
   <input placeholder="Tilføj indkøb" bind:value={text} use:focus />
   <button type="submit">Tilføj</button>
