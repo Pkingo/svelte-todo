@@ -89,7 +89,7 @@
       {/if}
     </div>
   {/if}
-  <div class="icon-wrapper">
-    <Icon data={trash} on:click={remove} />
+  <div class="icon-wrapper" on:click={remove}>
+    <Icon data={trash} />
   </div>
 </li>
