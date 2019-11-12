@@ -6,6 +6,7 @@
   import { startWith } from "rxjs/operators";
   import Icon from "svelte-awesome";
   import { spinner } from "svelte-awesome/icons";
+  import RandomFact from "../RandomFact/randomfact.svelte";
 
   let text = "";
 
@@ -64,7 +65,8 @@
   .icon-wrapper {
     margin-top: 5rem;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
   table {
     width: 100%;
@@ -79,18 +81,20 @@
 {#if !$purchases.length}
   <div in:fade out:fade class="icon-wrapper">
     <Icon data={spinner} pulse scale="5" />
+    <RandomFact />
   </div>
+{:else}
+  <table>
+    {#each $purchases as purchase}
+      <PurchaseItem
+        {...purchase}
+        on:remove={removeItem}
+        on:toggle={updateStatus}
+        on:editText={updateText} />
+    {/each}
+  </table>
+  <form on:submit={handleSubmit}>
+    <input placeholder="Tilføj indkøb" bind:value={text} use:focus />
+    <button type="submit">Tilføj</button>
+  </form>
 {/if}
-<table>
-  {#each $purchases as purchase}
-    <PurchaseItem
-      {...purchase}
-      on:remove={removeItem}
-      on:toggle={updateStatus}
-      on:editText={updateText} />
-  {/each}
-</table>
-<form on:submit={handleSubmit}>
-  <input placeholder="Tilføj indkøb" bind:value={text} use:focus />
-  <button type="submit">Tilføj</button>
-</form>
