@@ -81,7 +81,6 @@
 {#if !$purchases.length}
   <div in:fade out:fade class="icon-wrapper">
     <Icon data={spinner} pulse scale="5" />
-    <RandomFact />
   </div>
 {:else}
   <table>
@@ -98,3 +97,4 @@
     <button type="submit">Tilføj</button>
   </form>
 {/if}
+<RandomFact />
