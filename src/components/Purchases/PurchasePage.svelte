@@ -11,7 +11,7 @@
   let text = "";
 
   const query = db.collection("todos").orderBy("created");
-  const purchases = collectionData(query, "id").pipe(startWith([]));
+  const purchases = collectionData(query, "id");
 
   function add() {
     db.collection("todos").add({
@@ -78,7 +78,7 @@
   }
 </style>
 
-{#if !$purchases.length}
+{#if !$purchases}
   <div in:fade out:fade class="icon-wrapper">
     <Icon data={spinner} pulse scale="5" />
   </div>
